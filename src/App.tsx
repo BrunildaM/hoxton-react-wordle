@@ -19,49 +19,49 @@ function getRandomWord() {
 }
 
 function App() {
-  const [word, setWord] = useState("");
+  const [word, setWord] = useState(getRandomWord());
   const [guesses, setGuesses] = useState([
     [
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
+      { value: "", status: "" },
+      { value: "", status: "" },
       { value: "", status: "not-in-word" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
+      { value: "", status: "" },
+      { value: "", status: "" },
     ],
     [
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
     ],
     [
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
     ],
     [
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
     ],
     [
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
     ],
     [
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
-      { value: "", status: "not-entered" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
+      { value: "", status: "" },
     ],
   ]);
 
@@ -90,6 +90,7 @@ function App() {
 
 
   function submitGuess() {
+    if (position.char < 4) return
     const guessesCopy = JSON.parse(JSON.stringify(guesses))
     let guess = guessesCopy[position.guess]
 
@@ -107,7 +108,7 @@ function App() {
     for (const index in guess) {
       const char = guess[index]
       if (char.status = 'at-location') continue
-      
+
      if (word.includes(char.value)) {
         char.status = 'in-word'
         wordCopy = wordCopy.replace(char.value, '_')
@@ -118,6 +119,7 @@ function App() {
 
     setGuesses(guessesCopy)
     setPosition({...position, guess: position.guess +1, char: 0})
+    setWord(word)
 
   }
 
