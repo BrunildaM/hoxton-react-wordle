@@ -1,0 +1,44 @@
+.App {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.guesses-list {
+  display: grid;
+  border: 1px solid black;
+  grid-auto-rows: 50px;
+}
+
+.guess {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 50px;
+}
+
+.character {
+  display: grid;
+  border: 1px solid black;
+  place-content: center;
+  font-size: bold;
+  text-transform: uppercase;
+}
+
+.character.not-entered{
+  background-color: white;
+}
+
+.character.in-word{
+  background-color: rgb(228, 232, 15);
+}
+
+.character.not-in-word{
+  background-color: rgb(93, 94, 85);
+}
+
+.character.at-location{
+  background-color: rgb(15, 232, 62);
+}
+
+
+
